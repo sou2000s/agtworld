@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import joinIcon from '../../images/Vector (3).png'
 import postImage1 from '../../images/Rectangle 5.png'
 import postImage2 from '../../images/Rectangle 5 (1).png'
@@ -14,10 +14,12 @@ import eyeIcon from '../../images/Path.png'
 import writePostIcon from '../../images/Vector (1).png'
 import meetUpPicture from '../../images/Rectangle 5 (3).png'
 import meetUpIcon from '../../images/🗓️ Meetup.png'
-import { Modal } from 'bootstrap';
+import leaveIcon from '../../images/Vector (16).png'
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import avatar1 from '../../images/Rectangle 6.png'
 const Postsection = () => {
   const [action ,setAction] = useState(false)
-
+  const {user} = useContext(AuthContext)
   const handleAction = ()=>{
     setAction(!action)
     console.log(action);
@@ -38,7 +40,7 @@ const Postsection = () => {
            
               <div className='d-flex'>
                <p className='btn btn-light'>Write a post <img src={writePostIcon} alt="" /> </p>
-                <p className='ms-3 btn btn-primary'> <img src={joinIcon} alt="" /> Join group</p>
+                {!user.name ? <p className='ms-3 btn btn-primary'> <img src={joinIcon} alt="" /> Join group</p> : <p className='ms-3 btn btn-light'> <img src={leaveIcon} alt="" /> Leave group</p>}
                </div>
               
               
@@ -135,7 +137,8 @@ const Postsection = () => {
   </div>
 </div>
       
-        <div className='d-flex'>
+       <div>
+       <div className='d-flex'>
          <div>
          <img src={locationIcon} style={{height:"10px"}} alt="" />
          </div> 
@@ -147,11 +150,27 @@ const Postsection = () => {
             <img src={penIcon} alt="" />
 
               </div>
+
+              
         </div>
+        <div className='mt-5'>
+               <p className='d-flex justify-content-between'> 
+                <div>
+                <img src={avatar1} alt=""  /> <span className='ms-2 mt-2'>Leisure</span> 
+                </div>
+                 
+                      <div>
+                      <span className='btn btn-light btn-sm'>follow</span>
 
+                      </div>
 
+                       </p>
+              </div>
        </div>
+       
         
+       </div>
+      
         </div>
      
     );
