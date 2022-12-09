@@ -1,6 +1,7 @@
-import { Modal } from 'bootstrap';
+
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Modal from '../Components/Modal/Modal';
 import Navbar from '../Components/Navbar/Navbar';
 
 const Layout = () => {
@@ -11,9 +12,9 @@ const Layout = () => {
            </div>
             <div>
             
+       <Modal/>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{/* <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -29,7 +30,7 @@ const Layout = () => {
       </div>
     </div>
   </div>
-</div>
+</div> */}
             </div>
             <Outlet/>
         </div>
